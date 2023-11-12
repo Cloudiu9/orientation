@@ -16,9 +16,7 @@ function on_device_orientation(evt) {
 
     context.clearRect(0, 0, canvas.width, canvas.height);
     context.fillStyle = "#6A0888";
-    context.save(); // Save the current state of the context
-    context.translate(centru.x, centru.y);
-    context.rotate(beta * (Math.PI / 180));
-    context.fillRect(-latura_patrat / 2, -latura_patrat / 2, latura_patrat, latura_patrat);
-    context.restore(); // Restore the saved state (undo the translation and rotation)
+    context.beginPath();
+    context.fillRect(180, 150, evt.beta, 50);
+
 }
