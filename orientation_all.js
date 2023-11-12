@@ -1,3 +1,4 @@
+// orientation_all.js
 window.addEventListener("deviceorientation", on_device_orientation);
 
 function on_device_orientation(evt) {
@@ -15,16 +16,17 @@ function on_device_orientation(evt) {
     var latura_patrat = 50;
 
     // Alpha rotation
-    context.setTransform(1, 0, 0, 1, 0, 0);
     context.clearRect(0, 0, canvas.width, canvas.height);
-    context.translate(centru.x / 2, centru.y / 2);
+    context.fillStyle = "#6A0888";
+    context.save();
+    context.translate(centru.x, centru.y);
     context.rotate(alpha * (Math.PI / 180));
-    context.beginPath();
-    context.rect(-latura_patrat / 2, -latura_patrat / 2, latura_patrat, latura_patrat);
-    context.stroke();
+    context.fillRect(-latura_patrat / 2, -latura_patrat / 2, latura_patrat, latura_patrat);
+    context.restore();
 
     // Beta rotation
     context.clearRect(0, 0, canvas.width, canvas.height);
+    context.fillStyle = "#6A0888";
     context.save();
     context.translate(centru.x, centru.y);
     context.rotate(beta * (Math.PI / 180));
